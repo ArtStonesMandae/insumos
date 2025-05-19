@@ -27,10 +27,10 @@ st.subheader("Registre o uso com 1 clique!")
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("➕ Anotar 1x ET02 (CORREIOS)"):
+    if st.button("➕ Usar 1x 21099-ET02: CORREIOS"):
         data["21099-ET02: CORREIOS"] += 1
 with col2:
-    if st.button("➕ Anotar 1x ET03 (PEDIDOS)"):
+    if st.button("➕ Usar 1x 21118-ET03: PEDIDOS"):
         data["21118-ET03: PEDIDOS"] += 1
 
 # Mostrar totais
@@ -38,14 +38,19 @@ st.markdown("---")
 st.metric("Total usado - 21099-ET02: CORREIOS", data["21099-ET02: CORREIOS"])
 st.metric("Total usado - 21118-ET03: PEDIDOS", data["21118-ET03: PEDIDOS"])
 
-# Botão para zerar
+# Confirmação para zerar os contadores
 st.markdown("---")
-if st.button("🧹 Zerar Contadores"):
-    data = {
-        "21099-ET02: CORREIOS": 0,
-        "21118-ET03: PEDIDOS": 0
-    }
-    st.success("Contadores zerados!")
+with st.expander("🧹 Zerar contadores (confirmação necessária)"):
+    confirma = st.checkbox("Confirmo que desejo zerar os contadores.")
+    if st.button("Zerar agora"):
+        if confirma:
+            data = {
+                "21099-ET02: CORREIOS": 0,
+                "21118-ET03: PEDIDOS": 0
+            }
+            st.success("Contadores zerados!")
+        else:
+            st.warning("Você precisa marcar a confirmação antes de zerar.")
 
 # Salvar os dados atualizados
 with open(DATA_FILE, "w") as f:
