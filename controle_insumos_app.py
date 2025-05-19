@@ -41,7 +41,7 @@ st.metric("Total usado - 21118-ET03: PEDIDOS", data["21118-ET03: PEDIDOS"])
 # Confirmação para zerar os contadores
 st.markdown("---")
 with st.expander("🧹 Zerar (confirmação necessária)"):
-    confirma = st.checkbox("Confirmar.")
+    confirma = st.checkbox("Confirmar")
     if st.button("Zerar agora"):
         if confirma:
             data = {
