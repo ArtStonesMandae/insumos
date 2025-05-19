@@ -27,16 +27,16 @@ st.subheader("Registre o uso com 1 clique!")
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("➕ Usar 1x 21099-ET02: CORREIOS"):
-        data["21099-ET02: CORREIOS"] += 1
+    if st.button("➕ Anotar 1x ET02 (CORREIOS)"):
+        data["21099-ET02 (CORREIOS)"] += 1
 with col2:
-    if st.button("➕ Usar 1x 21118-ET03: PEDIDOS"):
-        data["21118-ET03: PEDIDOS"] += 1
+    if st.button("➕ Anotar 1x ET03 (PEDIDOS)"):
+        data["21118-ET03 (PEDIDOS)"] += 1
 
 # Mostrar totais
 st.markdown("---")
-st.metric("Total usado - 21099-ET02: CORREIOS", data["21099-ET02: CORREIOS"])
-st.metric("Total usado - 21118-ET03: PEDIDOS", data["21118-ET03: PEDIDOS"])
+st.metric("Total usado - 21099-ET02: CORREIOS", data["21099-ET02 (CORREIOS)"])
+st.metric("Total usado - 21118-ET03: PEDIDOS", data["21118-ET03 (PEDIDOS)"])
 
 # Botão para zerar
 st.markdown("---")
